@@ -3,7 +3,7 @@ import React from "react";
 function Nav() {
   const links = ["Collections", "Men", "Women", "About", "Contact"];
   return (
-    <nav className=" bg-blue-400 px-6 py-16">
+    <nav className="hidden sm:flex  bg-blue-400 px-6 py-16">
       <ul className=" flex flex-col gap-4">
         {links.map((name) => (
           <NavLink key={name} name={name} />

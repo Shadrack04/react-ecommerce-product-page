@@ -5,7 +5,7 @@ import product3 from "../../public/images/image-product-3.jpg";
 
 function Product() {
   return (
-    <div className="">
+    <div className=" mb-4">
       <img
         className=" h-72 w-full sm:w-72"
         src={product1}
