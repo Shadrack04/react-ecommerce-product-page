@@ -9,17 +9,19 @@ import MobileMenu from "./MobileMenu";
 function Header() {
   const [isOpenNav, setIsOpenNav] = useState(false);
   return (
-    <header className=" h-16 px-4 bg-white w-full flex gap-2 items-center justify-between">
-      <div className=" flex gap-4 items-center">
-        <img
-          onClick={() => setIsOpenNav(!isOpenNav)}
-          className=" sm:hidden z-50"
-          src={menuIcon}
-          alt="menu icon"
-        />
-        <img src={logo} alt="Logo image" />
+    <header className=" h-16 px-4 bg-white w-full flex gap-2 items-center justify-between sm:shadow-lg sm:mb-12">
+      <div className=" flex  items-center  gap-6">
+        <div className=" flex gap-4 items-center">
+          <img
+            onClick={() => setIsOpenNav(!isOpenNav)}
+            className=" sm:hidden z-50"
+            src={menuIcon}
+            alt="menu icon"
+          />
+          <img src={logo} alt="Logo image" />
+        </div>
+        <Nav />
       </div>
-      <Nav />
 
       <div className=" flex gap-4 items-center ">
         <img className=" h-6" src={cartIcon} alt="" />

@@ -9,10 +9,12 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="">
+    <div className=" sm:px-2 md:px-4 lg:px-40">
       <Header />
-      <Product />
-      <Details />
+      <div className=" sm:grid grid-cols-2">
+        <Product />
+        <Details />
+      </div>
     </div>
   );
 }
