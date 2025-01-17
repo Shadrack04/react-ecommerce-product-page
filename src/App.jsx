@@ -8,6 +8,7 @@ import Order from "./components/Order";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [openOrder, setOpenOrder] = useState(false);
 
   function handleAddToCart(product) {
     let isInCart = false;
@@ -45,10 +46,19 @@ function App() {
     );
   }
 
+  function handleCheckout() {
+    setOpenOrder(false);
+    setCart([]);
+  }
+
   return (
-    <div className=" relative sm:px-2 md:px-4 lg:px-40">
-      <Order cart={cart} />
-      <Header cart={cart} />
+    <div className=" relative w-screen sm:w-[80%] mx-auto">
+      {openOrder && <Order cart={cart} handleCheckout={handleCheckout} />}
+      <Header
+        cart={cart}
+        openOrder={{ openOrder }}
+        setOpenOrder={setOpenOrder}
+      />
       <div className=" sm:grid grid-cols-2">
         <Product />
         <Details

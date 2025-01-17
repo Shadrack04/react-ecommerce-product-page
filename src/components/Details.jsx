@@ -58,7 +58,7 @@ function Details({ onClick, handleIncrease, handleDecrease, cart }) {
               thumbnail: thumbnail1,
             })
           }
-          className=" col-span-3 mb-12 w-full flex items-center justify-center gap-4 py-3 px-4 bg-[hsl(26_100%_55%)] text-l font-bold rounded-lg"
+          className=" col-span-3 mb-12 w-full flex items-center justify-center gap-4 py-3 px-4 bg-[hsl(26_100%_55%)] hover:bg-[#ff7d1aab] text-l font-bold rounded-lg"
         >
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path

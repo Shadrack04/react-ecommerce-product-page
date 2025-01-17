@@ -6,7 +6,7 @@ import avatar from "../../public/images/image-avatar.png";
 import menuIcon from "../../public/images/icon-menu.svg";
 import MobileMenu from "./MobileMenu";
 
-function Header({ cart }) {
+function Header({ cart, setOpenOrder, openOrder }) {
   const [isOpenNav, setIsOpenNav] = useState(false);
 
   const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -26,13 +26,20 @@ function Header({ cart }) {
       </div>
 
       <div className=" flex gap-4 items-center ">
-        <div className=" relative">
+        <div
+          onClick={() => setOpenOrder((prev) => !prev)}
+          className=" relative"
+        >
           <img className=" h-6" src={cartIcon} alt="" />
-          <span className=" absolute -top-2 -right-2 bg-[hsl(26_100%_55%)] text-xs font-bold text-white z-10 px-2 rounded-full ">
+          <span className=" pointer-events-none absolute -top-2 -right-2 bg-[hsl(26_100%_55%)] text-xs font-bold text-white z-10 px-2 rounded-full ">
             {cartItemCount}
           </span>
         </div>
-        <img className=" h-8" src={avatar} alt="" />
+        <img
+          className=" h-8 hover:border-2 rounded-full hover:border-[hsl(26_100%_55%)] transition-all duration-200"
+          src={avatar}
+          alt=""
+        />
       </div>
 
       <MobileMenu isOpenNav={isOpenNav} />

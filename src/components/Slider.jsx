@@ -24,7 +24,7 @@ const images = [
 function Slider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className=" px-2 mx-auto">
+    <div className=" px-2 sm:px-0">
       <Swiper
         className=" mb-4"
         style={{
