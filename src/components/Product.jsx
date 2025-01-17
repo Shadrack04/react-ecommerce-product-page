@@ -21,38 +21,7 @@ function Product() {
   }
   return (
     <div className=" mb-4 w-96 sm:w-full md:w-84 lg:w-96">
-      {/* <img
-        className=" mb-4 h-72 rounded-lg w-full"
-        src={imageURL}
-        alt="Product image"
-      /> */}
       <Slider />
-      {/* <div className=" hidden sm:flex items-center justify-between">
-        <img
-          onClick={() => handleSelectImage(product1)}
-          className=" w-20 sm:w-16 rounded-md"
-          src={thumbnail1}
-          alt="product thumbnail"
-        />
-        <img
-          onClick={() => handleSelectImage(product2)}
-          className=" w-20 rounded-md"
-          src={thumbnail2}
-          alt="product thumbnail"
-        />
-        <img
-          onClick={() => handleSelectImage(product3)}
-          className=" w-20 rounded-md"
-          src={thumbnail3}
-          alt="product thumbnail"
-        />
-        <img
-          onClick={() => handleSelectImage(product4)}
-          className=" w-20 rounded-md"
-          src={thumbnail4}
-          alt="product thumbnail"
-        />
-      </div> */}
     </div>
   );
 }

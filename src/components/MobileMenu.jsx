@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 
 function MobileMenu({ isOpenNav }) {
-  console.log(isOpenNav);
-
   const links = ["Collections", "Men", "Women", "About", "Contact"];
   return (
     <div
