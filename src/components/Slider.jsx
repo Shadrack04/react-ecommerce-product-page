@@ -21,10 +21,10 @@ const images = [
   { image: product4, thumbnail: thumbnail4 },
 ];
 
-function Slider() {
+function Slider({ isLargeScreen }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className=" px-2 sm:px-0">
+    <div className=" px-2 sm:px-0 rounded-lg">
       <Swiper
         className=" mb-4"
         style={{
@@ -34,13 +34,17 @@ function Slider() {
         modules={[FreeMode, Navigation, Pagination, Thumbs]}
         spaceBetween={10}
         slidesPerView={1}
-        navigation={true}
+        navigation={isLargeScreen ? false : true}
         thumbs={{ swiper: thumbsSwiper }}
         pagination={{ clickable: true }}
       >
         {images.map((product) => (
           <SwiperSlide key={product.image}>
-            <img src={product.image} alt={product.image} />
+            <img
+              className=" rounded-lg"
+              src={product.image}
+              alt={product.image}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

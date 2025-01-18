@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import product1 from "../../public/images/image-product-1.jpg";
 import product2 from "../../public/images/image-product-2.jpg";
 import product3 from "../../public/images/image-product-3.jpg";
@@ -14,14 +14,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Slider from "./Slider";
 
-function Product() {
+function Product({ setOpenLightBox, isLargeScreen }) {
   const [imageURL, setImageURL] = useState(product1);
-  function handleSelectImage(url) {
-    setImageURL(url);
-  }
+
   return (
-    <div className=" mb-4 w-96 sm:w-full md:w-84 lg:w-96">
-      <Slider />
+    <div
+      onClick={() => setOpenLightBox(true)}
+      className=" mb-4 w-96 sm:w-full md:w-84 lg:w-96"
+    >
+      <Slider isLargeScreen={isLargeScreen} />
     </div>
   );
 }
