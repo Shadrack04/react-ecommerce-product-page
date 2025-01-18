@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
+import NavigationBtn from "./NavigationBtn";
 import product1 from "../../public/images/image-product-1.jpg";
 import product2 from "../../public/images/image-product-2.jpg";
 import product3 from "../../public/images/image-product-3.jpg";
@@ -23,21 +24,35 @@ const images = [
 
 function Slider({ isLargeScreen }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  const swiperRef = useRef(null);
+
+  function handleNext() {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
+  }
+
+  function handlePrev() {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  }
+
   return (
-    <div className=" px-2 sm:px-0 rounded-lg">
+    <div className=" relative px-2 sm:px-0 rounded-lg">
       <Swiper
         className=" mb-4"
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        ref={swiperRef}
         modules={[FreeMode, Navigation, Pagination, Thumbs]}
         spaceBetween={10}
         slidesPerView={1}
-        navigation={isLargeScreen ? false : true}
+        navigation={false}
         thumbs={{ swiper: thumbsSwiper }}
         pagination={{ clickable: true }}
+        loop={true}
       >
+        <NavigationBtn handlePrev={handlePrev} handleNext={handleNext} />
         {images.map((product) => (
           <SwiperSlide key={product.image}>
             <img
