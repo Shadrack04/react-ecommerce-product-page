@@ -52,7 +52,8 @@ function App() {
   }
 
   function handleDecrease(name, quantity) {
-    if (quantity <= 0) {
+    console.log(quantity);
+    if (quantity < 1) {
       setCart([]);
       return;
     }
@@ -70,8 +71,19 @@ function App() {
 
   return (
     <div className=" relative w-screen sm:w-[80%] mx-auto">
-      {openLightBox && <LightBox isLargeScreen={isLargeScreen} />}
-      {openOrder && <Order cart={cart} handleCheckout={handleCheckout} />}
+      {openLightBox && (
+        <LightBox
+          setOpenLightBox={setOpenLightBox}
+          isLargeScreen={isLargeScreen}
+        />
+      )}
+      {openOrder && (
+        <Order
+          cart={cart}
+          handleCheckout={handleCheckout}
+          setOpenOrder={setOpenOrder}
+        />
+      )}
       <Header
         cart={cart}
         openOrder={{ openOrder }}

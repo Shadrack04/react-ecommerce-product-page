@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 
-function MobileMenu({ isOpenNav }) {
+function MobileMenu({ isOpenNav, setIsOpenNav }) {
   const links = ["Collections", "Men", "Women", "About", "Contact"];
   return (
     <div
+      onClick={() => setIsOpenNav(false)}
       style={
         isOpenNav
           ? { transform: "translate(0%)" }

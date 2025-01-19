@@ -3,6 +3,8 @@ import cartIcon from "../../public/images/icon-cart.svg";
 import thumbnail1 from "../../public/images/image-product-1-thumbnail.jpg";
 
 function Details({ onClick, handleIncrease, handleDecrease, cart }) {
+  // console.log(cart);
+  // console.log(cart.length);
   const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <div className=" px-4">
@@ -24,7 +26,7 @@ function Details({ onClick, handleIncrease, handleDecrease, cart }) {
           <h2 className=" text-3xl font-bold">
             $<span>125.00</span>
           </h2>
-          <p className=" py-0.5 px-2 bg-[hsl(26_100%_55%)] text-white text-md font-semibold rounded-md">
+          <p className=" py-0.5 px-2 bg-[rgb(255,125,26)] text-white text-md font-semibold rounded-md">
             50%
           </p>
         </div>
@@ -36,7 +38,7 @@ function Details({ onClick, handleIncrease, handleDecrease, cart }) {
         <div className=" col-span-2 mb-4 sm:mb-0 flex items-center justify-between sm:h-fit py-2 px-4 bg-[hsl(223_64%_98%)] rounded-lg ">
           <button
             onClick={() =>
-              handleDecrease("Fall Limited Edition Sneakers", cartItemCount)
+              handleDecrease("Fall Limited Edition Sneakers", cartItemCount - 1)
             }
             className=" text-2xl font-bold text-[hsl(26_100%_55%)]"
           >
@@ -51,6 +53,7 @@ function Details({ onClick, handleIncrease, handleDecrease, cart }) {
           </button>
         </div>
         <button
+          disabled={cart.length > 0 ? true : false}
           onClick={() =>
             onClick({
               name: "Fall Limited Edition Sneakers",
@@ -58,7 +61,7 @@ function Details({ onClick, handleIncrease, handleDecrease, cart }) {
               thumbnail: thumbnail1,
             })
           }
-          className=" col-span-3 mb-12 w-full flex items-center justify-center gap-4 py-3 px-4 bg-[hsl(26_100%_55%)] hover:bg-[#ff7d1aab] text-l font-bold rounded-lg"
+          className=" disabled:bg-gray-500 disabled:cursor-not-allowed col-span-3 mb-12 w-full flex items-center justify-center gap-4 py-3 px-4 bg-[hsl(26_100%_55%)] hover:bg-[#ff7d1aab] text-l font-bold rounded-lg"
         >
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
