@@ -7,7 +7,7 @@ function Order({ cart, handleCheckout, setOpenOrder }) {
       onClick={() => setOpenOrder(false)}
       className=" fixed inset-0 bg-black bg-opacity-50 z-50"
     >
-      <div className="absolute flex items-center justify-end top-16 mt-1 z-50 w-full box-border ">
+      <div className=" order-mount absolute flex items-center justify-end top-16 mt-1 z-50 w-full box-border duration-300 ">
         <div className="sm:w-96 h-60 bg-white w-full rounded-lg sm:shadow-lg">
           <div className=" h-16 border-b-2 p-4">
             <h1 className=" text-xl font-medium">Cart</h1>
