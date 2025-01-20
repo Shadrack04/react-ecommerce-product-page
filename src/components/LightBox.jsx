@@ -2,10 +2,19 @@ import React from "react";
 import Slider from "./Slider";
 
 function LightBox({ isLargeScreen, setOpenLightBox }) {
-  console.log(isLargeScreen);
   if (!isLargeScreen) return;
+
+  function handleBackgroundClick(e) {
+    if (e.target.classList.contains("lightbox-background")) {
+      setOpenLightBox(false);
+    }
+  }
+
   return (
-    <div className=" fixed inset-0 z-50 bg-black bg-opacity-85 flex flex-col items-center justify-center ">
+    <div
+      onClick={handleBackgroundClick}
+      className="lightbox-background fixed inset-0 z-50 bg-black bg-opacity-85 flex flex-col items-center justify-center "
+    >
       <button
         onClick={() => setOpenLightBox(false)}
         className=" mb-2 w-96 flex justify-end"
