@@ -5,7 +5,7 @@ function LightBox({ isLargeScreen, setOpenLightBox }) {
   console.log(isLargeScreen);
   if (!isLargeScreen) return;
   return (
-    <div className=" fixed inset-0 z-50 bg-black bg-opacity-50 flex flex-col items-center justify-center ">
+    <div className=" fixed inset-0 z-50 bg-black bg-opacity-85 flex flex-col items-center justify-center ">
       <button
         onClick={() => setOpenLightBox(false)}
         className=" mb-2 w-96 flex justify-end"
@@ -18,7 +18,7 @@ function LightBox({ isLargeScreen, setOpenLightBox }) {
           />
         </svg>
       </button>
-      <div className=" w-96 h-96">
+      <div className=" w-96 h-96 z-50 ">
         <Slider />
       </div>
     </div>

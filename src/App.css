@@ -14,3 +14,8 @@
 .order-mount {
   animation: scale-in 500ms ease-in-out;
 }
+
+.swiper-slide-thumb-active .thumbnail {
+  transform: scale(1.1);
+  border: 3px solid hsl(26, 100%, 55%);
+}

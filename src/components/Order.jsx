@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Order({ cart, handleCheckout, setOpenOrder }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <div
       onClick={() => setOpenOrder(false)}
-      className=" fixed inset-0 bg-black bg-opacity-50 z-50"
+      className=" fixed inset-0 bg-black flex items-center justify-center bg-opacity-50 z-50"
     >
-      <div className=" order-mount absolute flex items-center justify-end top-16 mt-1 z-50 w-full box-border duration-300 ">
+      <div className="absolute sm:flex sm:items-center sm:justify-end top-16 mt-1 z-50 w-full sm:w-[80%] box-border ">
         <div className="sm:w-96 h-60 bg-white w-full rounded-lg sm:shadow-lg">
           <div className=" h-16 border-b-2 p-4">
             <h1 className=" text-xl font-medium">Cart</h1>

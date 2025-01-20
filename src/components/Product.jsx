@@ -18,11 +18,8 @@ function Product({ setOpenLightBox, isLargeScreen }) {
   const [imageURL, setImageURL] = useState(product1);
 
   return (
-    <div
-      onClick={() => setOpenLightBox(true)}
-      className=" mb-4 w-96 sm:w-full md:w-84 lg:w-96"
-    >
-      <Slider isLargeScreen={isLargeScreen} />
+    <div className=" mb-4 w-96 sm:w-full md:w-84 lg:w-96">
+      <Slider setOpenLightBox={setOpenLightBox} isLargeScreen={isLargeScreen} />
     </div>
   );
 }

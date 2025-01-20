@@ -22,8 +22,9 @@ const images = [
   { image: product4, thumbnail: thumbnail4 },
 ];
 
-function Slider({ isLargeScreen }) {
+function Slider({ isLargeScreen, setOpenLightBox }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const swiperRef = useRef(null);
 
@@ -42,7 +43,9 @@ function Slider({ isLargeScreen }) {
   return (
     <div className=" relative px-2 sm:px-0 rounded-lg">
       <Swiper
-        className=" mb-4"
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onClick={() => setOpenLightBox(true)}
+        className=" mb-4 sm:h-80"
         ref={swiperRef}
         modules={[FreeMode, Navigation, Pagination, Thumbs]}
         spaceBetween={10}
@@ -50,7 +53,7 @@ function Slider({ isLargeScreen }) {
         navigation={false}
         thumbs={{ swiper: thumbsSwiper }}
         pagination={{ clickable: true }}
-        loop={true}
+        loop={false}
       >
         <NavigationBtn handlePrev={handlePrev} handleNext={handleNext} />
         {images.map((product) => (
@@ -73,10 +76,19 @@ function Slider({ isLargeScreen }) {
           modules={[FreeMode, Navigation, Thumbs]}
         >
           <div className="">
-            {images.map((thumb) => (
+            {images.map((thumb, index) => (
               <SwiperSlide key={thumb.thumbnail} className="">
                 <img
-                  className=" w-full rounded-md "
+                  style={
+                    activeIndex === index
+                      ? {
+                          transform: "scale(1.1)",
+                          border: "2px solid hsl(26, 100%, 55%)",
+                          filter: "grayscale(30%)",
+                        }
+                      : {}
+                  }
+                  className=" sm:w-[90%] sm:h-[90%] mx-auto rounded-md hover:skew-y-6 transition-all duration-300 origin-top-right "
                   src={thumb.thumbnail}
                   alt={thumb.thumbnail}
                 />
